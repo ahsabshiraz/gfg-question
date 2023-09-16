@@ -15,7 +15,7 @@ int countdigit(int n)
 
 int main()
 {
-    int n = 2234344;
+    int n = 22343440;
     cout<<countdigit(n);
     
     return 0;
