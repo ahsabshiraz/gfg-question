@@ -31,7 +31,7 @@ void reverseWords(char str[], int n)
 
 int main()
 {
-    string s = "Welcome to Gfg";
+    string s = "Welcome to Gfg yoo";
     int n = s.length();
     char str[n];
     strcpy(str, s.c_str());
