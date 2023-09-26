@@ -12,7 +12,7 @@ void PrintRecursive(int n)
 }
 int main()
 {
-    int n = 12;
+    int n = 14;
     PrintRecursive(n);
     return 0;
 }
