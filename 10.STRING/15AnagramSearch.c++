@@ -25,7 +25,7 @@ bool isPresent(string &txt, string &pat)
     for (int i = 0; i <= n - m; i++)
     {
         if (areAnagram(pat, txt, i))
-            return true; 
+            return true;
     }
     return false;
 }
