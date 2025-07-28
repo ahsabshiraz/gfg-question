@@ -25,12 +25,15 @@ void printlist(Node *head)
 
 Node *reverseK(Node *head, int k) // iterative
 {
-    Node *curr = head, *prevFirst = NULL;
+    Node *curr = head, *prevFirst = NULL;// it is necessary for connecting the groups with each other
+    // to keep track of head
     bool isFirstPass = true;
+    // start the loop
     while (curr != NULL)
     {
         Node *first = curr, *prev = NULL;
         int count = 0;
+        // reverse  k group
         while (curr != NULL && count < k)
         {
             Node *next = curr->next;
@@ -39,19 +42,22 @@ Node *reverseK(Node *head, int k) // iterative
             curr = next;
             count++;
         }
-        if (isFirstPass)
+        // after every loop prev points at the head reversed kth group
+        if (isFirstPass) // pass is important bcz in first pass we have to deal with the head
         {
-            head = prev;//that so we point at head easily return head
+            head = prev; // that so we point at head easily return head
             isFirstPass = false;
         }
         else
         {
-            prevFirst->next = prev;
+            prevFirst->next = prev;// prev head joins with c
         }
-        prevFirst = first;
+        prevFirst = first;//make curr_head into prevhead
     }
     return head;
 }
+
+
 Node *reverseK1(Node *head, int k) // recursive
 {
     Node *curr = head, *next = NULL, *prev = NULL;

@@ -11,8 +11,8 @@ int maxGuest(int arr[], int dep[], int n)
     int i = 1, j = 0, res = 1, curr = 1;
     while (i < n && j < n)
     {
-        if (arr[i] < dep[j])
-        {
+        if (arr[i] < dep[j]) // {6,7,9}
+        {                    // {7:30,8,10}
             curr++;
             i++;
         }
@@ -21,6 +21,7 @@ int maxGuest(int arr[], int dep[], int n)
             curr--;
             j++;
         }
+        cout << curr << endl;
         res = max(curr, res);
     }
     return res;
@@ -32,7 +33,7 @@ int main()
     int dep[] = {1000, 800, 730};
     int n = sizeof(arr) / sizeof(arr[0]);
 
-    cout << maxGuest(arr, dep, n);
+    cout << maxGuest(arr, dep, n) << "<-maxguest ";
 
     return 0;
 }

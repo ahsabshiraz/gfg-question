@@ -52,11 +52,12 @@ int sortedPermutationRank(string str) // https://www.youtube.com/watch?v=uUN8fVP
             if (arr[j])
                 numberOfletterSmaller++;
         }
-        arr[str[i]] = 0;
+        arr[str[i]] = 0; // now the current element is fixed and we don't have to count it again for any element
         output += numberOfletterSmaller * fact[n - 1 - i];
     }
     return output + 1;
 }
+
 int main()
 {
     string str = "ibytes";

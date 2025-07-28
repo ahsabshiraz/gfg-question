@@ -36,12 +36,13 @@ void printMiddle(Node *head) // naive
         curr = curr->next;
     cout << curr->data;
 }
-void printMiddle(Node *head)//Eff
+void printMiddle2(Node *head)//Eff
 {
     if (head == NULL)
         return;
     Node *slow = head, *fast = head;
-    while (fast != NULL && fast->next != NULL)
+    while (fast != NULL && fast->next != NULL)//We must ensure that fast and fast->next exist before 
+                                              //accessing fast->next->next to prevent segmentation faults.
     {
         slow = slow->next;
         fast = fast->next->next;
@@ -58,6 +59,6 @@ int main()
     head->next->next->next->next = new Node(50);
     printlist(head);
     cout << "Middle of Linked List: ";
-    printMiddle(head);
+    printMiddle2(head);
     return 0;
 }

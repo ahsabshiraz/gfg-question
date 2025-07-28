@@ -24,7 +24,7 @@ void printLevel(Node *root)
     while (q.empty() == false)
     {
         Node *curr = q.front();
-        
+
         q.pop();
         cout << curr->key << " ";
         if (curr->left != NULL)

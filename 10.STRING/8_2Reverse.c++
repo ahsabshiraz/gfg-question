@@ -26,6 +26,8 @@ void reverseWords(char str[], int n)
         }
     }
     reverse(str, start, n - 1); // we reverse last word expicitly
+    for (int i = 0; i < n; i++)
+        cout << str[i];
     reverse(str, 0, n - 1); // and now we reverse the whole array
 }
 

@@ -50,7 +50,7 @@ int repeat2(int arr[], int n)//modified version it handels array having elements
 int main()
 {
 
-    int arr[] = {1, 3, 2, 4, 6, 5, 7, 3}, n = 8;
+    int arr[] = {1, 2, 3, 4, 6, 5, 7, 4}, n = 8;
 
     cout << repeat(arr, n);
 

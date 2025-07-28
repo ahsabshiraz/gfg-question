@@ -57,5 +57,5 @@ int main()
 
     cout << diameter(root) << "\n";
     Diameter2(root);
-    cout<<res;
+    cout << res;
 }

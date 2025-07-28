@@ -15,10 +15,10 @@ int Search(int arr[], int n, int key) // naive
 
 int RotatedarraySearch(int arr[], int x, int n) // efficient
 {
-    int mid, low = 0, high = n - 1;
+    int  low = 0, high = n - 1;
     while (low <= high)
     {
-        mid = (low + high) / 2;
+       int mid = (low + high) / 2;
         if (arr[mid] == x)
             return mid;
 

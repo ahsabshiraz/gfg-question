@@ -17,7 +17,7 @@ struct Node
     }
 };
 
-void printSpiral(Node *root)//method-1 (using queue and stack)
+void printSpiral(Node *root) // method-1 (using queue and stack)
 {
     if (root == NULL)
         return;
@@ -57,7 +57,7 @@ void printSpiral(Node *root)//method-1 (using queue and stack)
     }
 }
 
-void printSpiral2(Node *root)//method-2 (using two stacks)
+void printSpiral2(Node *root) // method-2 (using two stacks)
 {
     if (root == NULL)
         return;

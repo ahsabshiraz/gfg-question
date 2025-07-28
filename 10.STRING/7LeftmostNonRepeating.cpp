@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <climits>
 using namespace std;
 int nonRepeating1(string s1) // naive
 {
@@ -48,7 +49,7 @@ int nonRepeating3(string s)
         if (index[s[i]] == -1)
             index[s[i]] = i;
         else
-            index[s[i]] = -2;  //marking repeating element as -2
+            index[s[i]] = -2; // marking repeating element as -2
     }
     int res = INT_MAX;
     for (int i = 0; i < s.length(); i++)

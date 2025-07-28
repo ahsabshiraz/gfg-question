@@ -1,4 +1,4 @@
-//Correct but not efficient
+// Correct but not efficient
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -54,7 +54,7 @@ int isBST(Node *root)
 
     if (root->right != NULL && minValue(root->right) < root->key)
         return 0;
-    
+
     if (!isBST(root->left) || !isBST(root->right))
         return 0;
 

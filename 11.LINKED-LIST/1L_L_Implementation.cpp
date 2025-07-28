@@ -1,4 +1,5 @@
-// Simple implementation of link-list and traversing singly l-l
+// Insert at the begining of the Link list
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -6,39 +7,45 @@ using namespace std;
 
 struct Node
 {
-    int x;
+    int data;
     Node *next;
-    Node(int y)
+    Node(int x)
     {
-        x = y;
+        data = x;
         next = NULL;
-    }                 
-};   
-
+    }
+};
 void printlist(Node *head) // iterative
 {
     while (head != NULL)
     {
-        cout << head->x << " ";
+        cout << head->data << " ";
         head = head->next;
     }
 }
 
-void Rprintlist(Node *head) // recursive
+Node *insertAtbegin(Node *head, int x) // my code
 {
     if (head == NULL)
-        return;
-    cout << head->x << " ";
-    Rprintlist(head->next);
+    {
+        head = new Node(x);
+        return head;
+    }
+
+    else
+    {
+        Node *temp = new Node(x);
+        temp->next=head;
+        head=temp;
+    }
+    return head;
 }
 
 int main()
 {
-    Node *head = new Node(10);
-    head->next = new Node(20);
-    head->next->next = new Node(30);
+    Node *head; //= new Node(10);
+    head = insertAtbegin(head, 15);
     printlist(head);
-    cout << endl;
-    Rprintlist(head);
+
     return 0;
 }

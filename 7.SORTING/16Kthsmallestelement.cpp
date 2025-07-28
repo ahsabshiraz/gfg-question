@@ -10,20 +10,20 @@ int KthSmallElement(int arr[], int n, int k) // naive
 
 //===========================================================================================
 //Quick select algorithm 
-int partition(int arr[], int l, int h)
+int partition(int arr[], int lb, int ub)
 {
-    int pivot = arr[h];
-    int i = l - 1;
-    for (int j = l; j <= h - 1; j++)
+    int start = lb, end = ub, pivot = arr[lb];
+    while (start < end)
     {
-        if (arr[j] < pivot)
-        {
-            i++;
-            swap(arr[i], arr[j]);
-        }
+        while (pivot >= arr[start])
+            start++;
+        while (pivot < arr[end])
+            end--;
+        if (start < end)
+            swap(arr[start], arr[end]);
     }
-    swap(arr[i + 1], arr[h]);
-    return i + 1;
+    swap(arr[lb], arr[end]); // lb is index of pivot that we chosse
+    return end;
 }
 
 int kthSmallest(int arr[], int n, int k) // works better in average

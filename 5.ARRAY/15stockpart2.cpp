@@ -15,7 +15,7 @@ int maxprofit(int price[], int n)
 
 int main()
 {
-    int A[] = {1, 5, 3, 8, 12};
+    int A[] = {7,1,5,3,6,4};
     int n = sizeof(A) / sizeof(A[0]);
     int MAX_profit = maxprofit(A, n);
     cout << MAX_profit;

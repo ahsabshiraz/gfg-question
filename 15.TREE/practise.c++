@@ -1,39 +1,59 @@
-// Creating a binary tree
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <queue>
+// C++ program to print inorder traversal
+// using stack.
+
+#include <bits/stdc++.h>
 using namespace std;
+
+// A binary tree Node has data, pointer to left child
+// and a pointer to right child
 struct Node
 {
-          int key;
-          Node *left, *right;
-          Node(int x)
-          {
-                    key = x;
-                    right = left = NULL;
-          }
+    int data;
+    struct Node *left;
+    struct Node *right;
+    Node(int data)
+    {
+        this->data = data;
+        left = right = NULL;
+    }
 };
-int res = 0;
-int fun(Node *root)
+
+// Iterative function for inorder tree traversal
+void inOrder(struct Node *root)
 {
-          if (!root)
-                    return root;
-          int lh = fun(root->left);
-          int rh = fun(root->right);
-          res = max(res, lh + rh + 1);
-          return 1 + max(lh + rh);
+    stack<Node *> st;
+    Node *ptr = root;
+
+    while (ptr != NULL || st.empty() == false)
+    {
+        while (!ptr)
+        {
+            st.push(ptr);
+            ptr = ptr->left;
+        }
+        ptr = st.top();
+        st.pop();
+        cout << ptr->data << " ";
+        ptr = ptr->right;
+    }
 }
 
+// Driver program to test above functions
 int main()
 {
+    /* Constructed binary tree is
+             1
+            / \
+          2	   3
+        / \
+       4  5
+    */
+    struct Node *root = new Node(1);
+    root->left = new Node(2);
+    root->right = new Node(3);
+    root->left->left = new Node(4);
+    root->left->right = new Node(5);
 
-          Node *root = new Node(10);
-          root->left = new Node(5);
-          root->right = new Node(30);
-          root->right->left = new Node(15);
-          root->right->right = new Node(20);
-          root->right->right->right = new Node(201);
-          root->right->right->right->left = new Node(28);
-          return 0;
+    inOrder(root);
+    return 0;
 }

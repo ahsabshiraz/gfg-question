@@ -13,6 +13,16 @@ struct Node
         next = NULL;
     }
 };
+void printlist(Node *head)
+{
+    Node *curr = head;
+    while (curr != NULL)
+    {
+        cout << curr->data << " ";
+        curr = curr->next;
+    }
+    cout << endl;
+}
 Node *revList(Node *head) // two traversal solution
 {
     vector<int> arr;
@@ -32,17 +42,25 @@ Node *revList(Node *head) // two traversal solution
 Node *revList1(Node *head)
 {
     Node *curr = head, *prev = NULL;
-    while(curr!=NULL)
+    while (curr != NULL)
     {
-        Node*next=curr->next;
-        curr->next=prev;
-        prev=curr;
-        curr=next;
+        Node *next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
     }
     return prev;
 }
 
 int main()
-{ 
+{
+    Node *head = new Node(10);
+    head->next = new Node(20);
+    head->next->next = new Node(30);
+    head->next->next->next = new Node(40);
+    head->next->next->next->next = new Node(50);
+    printlist(head);
+    head=revList1(head);
+    printlist(head);
     return 0;
 }

@@ -18,7 +18,7 @@ void printKth(Node *root, int k, int &count)
 {
     if (root != NULL)
     {
-        cout << root->key << " ";
+        // cout << root->key << " ";
         printKth(root->left, k, count);
         count++;                     // it increases while returning
         if (count == k)              // while returning it check's this condtion

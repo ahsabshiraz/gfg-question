@@ -8,7 +8,7 @@ void allD(int n)
         return;
     }
     for (int i = 1; i <= n; i++)
-    {
+    { 
         if (n % i == 0)
             cout << i<<" ";
     }

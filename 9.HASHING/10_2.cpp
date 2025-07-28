@@ -10,7 +10,7 @@ int issum(int a[], int n, int sum)
     for (int i = 0; i < n; i++)
     {
         presum += a[i];
-        if (presum == sum)//if sub which is eqaul to sum is from ind-0 to avoid this add '0' in set explicitly
+        if (presum == sum) // if sub which is eqaul to sum is from ind-0 to avoid this add 'sum' in set explicitly
             return true;
         if (h.find(presum - sum) != h.end())
         {

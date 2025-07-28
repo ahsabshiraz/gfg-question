@@ -47,6 +47,7 @@ int longestDistinct1(string str)
             }
         }
     }
+    return res;
 }
 int main()
 {

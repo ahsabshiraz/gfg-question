@@ -13,7 +13,7 @@ int findLongest(int arr[], int n)
 
     for (int i = 0; i < n; i++)
     {
-        if (s.find(arr[i] - 1) == s.end())
+        if (s.find(arr[i] - 1) == s.end())// check if it's the first element
         {
             int curr = 1;
             while (s.find(curr + arr[i]) != s.end())

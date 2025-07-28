@@ -1,4 +1,4 @@
-// // Insert at end of the doubly linked-list
+// Insert at end of the doubly linked-list
 #include <bits/stdc++.h>
 using namespace std;
 

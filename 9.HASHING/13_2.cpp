@@ -18,7 +18,7 @@ int longestCommonSum(bool arr1[], bool arr2[], int n)
 
     for (int i = 0; i < n; i++)
     {
-        sum += arr[i];
+        sum += arr[i];        
 
         if (sum == 0)
             max_len = i + 1;

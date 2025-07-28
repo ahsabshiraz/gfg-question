@@ -20,15 +20,15 @@ void patSearchinng(string &txt, string &pat)
         }
         else
         {
-            i = (i + j-1);
+            i = (i + j);
         }
     }
 }
 
 int main()
 {
-    string txt = "mississippi";
-    string pat = "issip";
+    string txt = "ABABDABACDABABCABAB";
+    string pat = "ABABCABAB";
     cout << "All index numbers where pattern found:"
          << " ";
     patSearchinng(txt, pat);

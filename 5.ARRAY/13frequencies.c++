@@ -24,7 +24,7 @@ void printfrequence(int arr[], int n)
 
 int main()
 {
-    int arr[] = {2, 1, 2};
+    int arr[] = {2, 1, 1, 1, 1, 2, 3, 3, 4, 4, 4, 5};
     int n = sizeof(arr) / sizeof(arr[0]);
     printfrequence(arr, n);
     

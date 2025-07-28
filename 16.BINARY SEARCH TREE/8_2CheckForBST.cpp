@@ -25,7 +25,6 @@ bool isBST(Node *root, int min, int max)
 
 int main()
 {
-
     Node *root = new Node(4);
     root->left = new Node(2);
     root->right = new Node(5);

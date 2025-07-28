@@ -35,9 +35,9 @@ int Rbinarysearch(int arr[], int low, int high, int key)//recursive binary searc
 
 int main()
 {
-    int arr[] = {2, 3, 4, 5, 6, 77,3};
+    int arr[] = {1,23,45,67,88,90};
     int n = sizeof(arr) / sizeof(arr[1]);
-    cout << binarySearch(arr, n, 77) << endl;
+    cout << binarySearch(arr, n, 90) << endl;
     cout << Rbinarysearch(arr, 0, n, 3);
     return 0;
 }

@@ -15,4 +15,4 @@ int main()
             cout << (char)(i + 'a') << " " << count[i] << endl;
     // cout << 'g' - 'a';
     return 0;
-}
+} 

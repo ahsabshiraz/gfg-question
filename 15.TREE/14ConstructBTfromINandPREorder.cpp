@@ -1,4 +1,4 @@
-//Constructing a binary tree from a preorder and inorder traversal
+// Constructing a binary tree from a preorder and inorder traversal
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -14,13 +14,15 @@ struct Node
     }
 };
 
-void inorder(Node *root){
-    if(root!=NULL){
+void inorder(Node *root)
+{
+    if (root != NULL)
+    {
         inorder(root->left);
-        cout<<root->key<<" ";
-        inorder(root->right);    
+        cout << root->key << " ";
+        inorder(root->right);
     }
-}  
+}
 
 //========================
 int preorder = 0;
@@ -43,11 +45,12 @@ Node *cTree(int pre[], int in[], int is, int ie) // is=inoderStart,ie=inorderEnd
     return root;
 }
 
-int main() {
-	
-	int in[]={20,10,40,30,50};
-	int pre[]={10,20,30,40,50};
-	int n=sizeof(in)/sizeof(in[0]);
-	Node *root=cTree(in, pre, 0, n-1);
-	inorder(root);
+int main()
+{
+
+    int in[] = {20, 10, 40, 30, 50};
+    int pre[] = {10, 20, 30, 40, 50};
+    int n = sizeof(in) / sizeof(in[0]);
+    Node *root = cTree(in, pre, 0, n - 1);
+    inorder(root);
 }

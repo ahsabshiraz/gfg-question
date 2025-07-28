@@ -1,53 +1,52 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 struct Node
 {
-          int key;
-          struct Node *left, *right;
-          Node(int x)
-          {
-                    key = x;
-                    left = right = NULL;
-          }
+    int key;
+    struct Node *left;
+    struct Node *right;
+    Node(int k)
+    {
+        key = k;
+        left = right = NULL;
+    }
 };
-void inorder(Node *root)
-{
-          if (root != NULL)
-          {
-                    inorder(root->left);
-                    cout << root->key << " ";
-                    inorder(root->right);
-          }
-}
 
-void fun(Node *root)
+void vTraversal(Node *root)
 {
-          map<int, int> mp;
-          queue<pair<Node *, int>> q;
-          q.push({root, 0});
-          while (q.empty() == false)
-          {
-                    Node *root = q.front().first;
-                    int hd = q.front().second;
-                    if (mp.find(hd) == mp.end())
-                              mp[hd] = root->key;
-                    q.pop();
-                    if (root->left)
-                              q.push({root->left, hd - 1});
-                    if (root->right)
-                              q.push({root->right, hd + 1});
-          }
+    map<int, int> mp;
+    queue<pair<int, Node *>> q;
+    q.push({0, root});
+    while (q.empty() == false)
+    {
+        int hd = q.front().first;
+        Node *curr = q.front().second;
+        q.pop();
+
+        mp[hd] = curr->key;
+
+        if (curr->left)
+            q.push({hd - 1, curr->left});
+        if (curr->right)
+            q.push({hd + 1, curr->right});
+    }
+    for (auto x : mp)
+        cout << x.second << " ";
+
+    cout << endl;
 }
 
 int main()
 {
-          Node *root = new Node(10);
-          root->left = new Node(5);
-          root->right = new Node(15);
-          root->right->left = new Node(12);
-          root->right->right = new Node(18);
-          int x = 15;
-          // root = fun(root, x);
-          inorder(root);
-          return 0;
+
+    Node *root = new Node(10);
+    root->left = new Node(20);
+    root->right = new Node(30);
+    root->left->left = new Node(40);
+    root->left->right = new Node(50);
+
+    vTraversal(root);
+
+    return 0;
 }

@@ -22,7 +22,7 @@ Node *lca(Node *root, int n1, int n2)
         return root;
     Node *lca1 = lca(root->left, n1, n2);
     Node *lca2 = lca(root->right, n1, n2);
-    if (lca1 != NULL && lca2 != NULL)
+    if (lca1 != NULL && lca2 != NULL)// we found the LCA
         return root;
     if (lca1 != NULL)
         return lca1;

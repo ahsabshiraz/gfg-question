@@ -1,5 +1,6 @@
 // Window sliding Techenique
 #include <iostream>
+#include <climits>
 using namespace std;
 // Q> Given an array of integer and a number k ,find the maximum sum of k consecutive element.
 int max_Sum(int arr[], int n, int k) //(naive)
@@ -48,7 +49,7 @@ bool subArraysum(int arr[], int n, int given_sum) // naive
     return false;
 }
 
-int subArraySum1(int arr[], int n, int sum)//efficient
+int subArraySum1(int arr[], int n, int sum) // efficient
 {
     /* Initialize curr_sum as value of first element
     and starting point as 0 */
@@ -86,8 +87,8 @@ int main()
 {
     int arr[] = {1, 8, 30, -5, 20, 7};
     int n = sizeof(arr) / sizeof(arr[0]);
-    cout << max_Sum(arr, n, 3);
-    cout<<endl;
-   subArraySum1(arr,n,45);
+    cout << maxSum(arr, n, 3);
+    cout << endl;
+    subArraySum1(arr, n, 45);
     return 0;
 }

@@ -20,7 +20,8 @@ int largestZeroSubarray(int arr[], int n)
                 maxLen = i - ump[sum + n];
         }
         else
-            ump[sum + n] = i;// we add n or remove it  
+            ump[sum + n] = i; // we add n or remove it // 1,2,3,2,3,2,3,4,5
+                              // 10,11,12,11,12,11,12,13,14
     }
 
     return maxLen;

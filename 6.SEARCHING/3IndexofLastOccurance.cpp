@@ -45,9 +45,9 @@ int lastIndex(int arr[], int n, int key)//iterative
 }
 int main()
 {
-    int arr[] = {2, 3, 4, 5, 6, 6, 6, 6, 6, 6, 7,7};
+    int arr[] = {2, 3, 4, 5, 5, 5, 6, 7};
     int n = sizeof(arr) / sizeof(arr[1]);
-    cout << lastINDEX(arr, 0, n, 7, n)<<" ";
-    cout<<lastIndex(arr,n,7);
+    cout << lastINDEX(arr, 0, n, 5, n)<<" ";
+    cout<<lastIndex(arr,n,5);
     return 0;
 }

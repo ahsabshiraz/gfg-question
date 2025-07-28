@@ -13,8 +13,9 @@ int maxlen(int a[], int n, int sum)
         presum += a[i];
         if (presum == sum)
         {
-            res == i + 1;
+            res = i + 1;
         }
+        // we only insert the element that we find for the first time to find the longest subarray
         if (h.find(presum) == h.end())
         {
             h.insert({presum, i});
@@ -22,6 +23,7 @@ int maxlen(int a[], int n, int sum)
         if (h.find(presum - sum) != h.end())
         {
             res = max(res, i - h[presum - sum]);
+            // cout << h[presum - sum] << " " << i << endl;
         }
     }
     return res;
@@ -29,10 +31,11 @@ int maxlen(int a[], int n, int sum)
 
 int main()
 {
-    int a[] = {8, 3, 1, 5, -6, 6, 2, 2};
+    int a[] = {8, 3, -6, 6, 2, 1, 2};
 
     int n = sizeof(a) / sizeof(int);
 
-    cout << maxlen(a, n, 4);
+    cout << maxlen(a, n, 3) << " ";
+
     return 0;
 }

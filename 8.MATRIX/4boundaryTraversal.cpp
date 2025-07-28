@@ -7,25 +7,25 @@ void Btraversal(vector<vector<int>> &A)
 {
     int r = A.size();
     int c = A[0].size();
-    if (r== 1)
-        for (int i = 0; i <c ; i++)
+    if (r == 1)
+        for (int i = 0; i < c; i++)
             cout
                 << A[0][i] << " ";
-    if (c== 1)
-        for (int i = 0; i <r ; i++)
+    if (c == 1)
+        for (int i = 0; i < r; i++)
             cout << A[i][0] << " ";
     else
     {
-        for (int i = 0; i <c ; i++)
+        for (int i = 0; i < c; i++)
             cout << A[0][i] << " ";
 
-        for (int i = 1; i <r ; i++)
-            cout << A[i][c-1] << " ";
+        for (int i = 1; i < r; i++)
+            cout << A[i][c - 1] << " ";
 
-        for (int i = c-2; i >= 0; i--)
+        for (int i = c - 2; i >= 0; i--)
             cout << A[r - 1][i] << " ";
 
-        for (int i = r-2; i >= 1; i--)
+        for (int i = r - 2; i >= 1; i--)
             cout << A[i][0] << " ";
     }
 }

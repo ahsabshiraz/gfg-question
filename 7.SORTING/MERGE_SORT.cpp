@@ -34,7 +34,7 @@ int main()
 {
     int a[] = {3, 13, 4, 5, 1, 51, 2, 7, 12, 54};
     int n = sizeof(a) / sizeof(a[0]);
-    mergeSORT(a, 0, n-1);
+    mergeSORT(a, 0, n - 1);
     for (int s : a)
         cout << s << " ";
     return 0;

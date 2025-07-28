@@ -24,7 +24,7 @@ int Peakelement(int arr[], int n) // efficient
     while (low <= high)
     {
         int mid = (low + high) / 2;
-        cout << low << " " << mid << " " << high << endl;
+        // cout << low << " " << mid << " " << high << endl;
         if ((mid == 0 || arr[mid] >= arr[mid - 1]) && (mid == n - 1 || arr[mid] >= arr[mid + 1]))
             return mid;
         else if (mid > 0 && arr[mid - 1] >= arr[mid])
@@ -39,7 +39,7 @@ int main()
 {
     int arr[] = {5, 10, 2, 15, 7, 8};
     int n = sizeof(arr) / sizeof(arr[1]);
-    // cout << peakElement(arr, n) << " "; // returns element
+    cout << peakElement(arr, n) << " "; // returns element
     cout << Peakelement(arr, n); // returns index
 
     return 0;

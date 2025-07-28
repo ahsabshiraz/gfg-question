@@ -58,8 +58,8 @@ int main()
     int arr[] = {1, 2, 3, 4, 5};
     int n = sizeof(arr) / sizeof(arr[0]);
     // LrotatebyD(arr, n, 2);
-    // leftRotate(arr, n, 5);
-    Leftrotate(arr, n, 2);
+    leftRotate(arr, n, 2);
+    // Leftrotate(arr, n, 2);
     for (int n : arr)
         cout << n << " ";
 }

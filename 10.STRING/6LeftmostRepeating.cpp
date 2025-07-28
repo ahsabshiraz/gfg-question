@@ -1,7 +1,8 @@
 // Left most repeating character
 #include <iostream>
 #include <vector>
-#include <algorithm>
+#include <map>
+#include <climits>
 using namespace std;
 
 int Leftmost1(string s) // naive
@@ -62,6 +63,18 @@ int Leftmost4(string s) // efficient-2
             visited[s[i]] = true;
     }
     return res;
+}
+int Leftmost5(string s)
+{
+    map<char, int> map;
+    for (auto x : s)
+        map[x]++;
+    for (int i = 0; i < s.size(); i++)
+    {
+        if (map[s[i]] >= 2)
+            return i;
+    }
+    return -12;
 }
 
 int main()

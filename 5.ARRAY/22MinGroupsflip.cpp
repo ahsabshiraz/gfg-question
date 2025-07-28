@@ -61,14 +61,15 @@ void MINgroupFLIP(int arr[], int n) // naive
             i++;
     }
 }
-
-void mingroupflip(int arr[], int n)//effecient
+//! first grp is always same as second grp or more it cannot be less than second grp
+//! we always flip second group
+void mingroupflip(int arr[], int n) // effecient
 {
     for (int i = 1; i < n; i++)
     {
-        if (arr[i] != arr[i - 1])// it's a differenrt group
+        if (arr[i] != arr[i - 1]) // it's a differenrt group
         {
-            if (arr[i] != arr[0])// it's not same group as first apprearing group
+            if (arr[i] != arr[0]) // it's not same group as first apprearing group
                 cout << "from " << i << " to ";
             else
                 cout << (i - 1) << endl;
@@ -81,9 +82,9 @@ void mingroupflip(int arr[], int n)//effecient
 int main()
 {
     int arr[] = {0, 1, 1, 1, 0, 0, 0, 0, 1, 0};
-    int ar1[]={0, 1, 1, 1, 0, 0, 0, 0, 1, 0};
+    int ar1[] = {0, 1, 1, 1, 0, 0, 0, 0, 1, 0};
     int n = sizeof(arr) / sizeof(arr[0]);
     MINgroupFLIP(arr, n);
-     mingroupflip(ar1,n);
+    mingroupflip(ar1, n);
     return 0;
 }

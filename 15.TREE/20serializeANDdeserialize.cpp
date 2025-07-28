@@ -25,13 +25,14 @@ void serialize(Node *root, vector<int> &arr) // serialization
     serialize(root->left, arr);
     serialize(root->right, arr);
 }
-int index = 0;
-Node *deserialize(vector<int> &arr)//deserialization
+
+int indexx = 0;
+Node *deserialize(vector<int> &arr) // deserialization
 {
-    if (index == arr.size())
+    if (indexx == arr.size())
         return NULL;
-    int val = arr[index];
-    index++;
+    int val = arr[indexx];
+    indexx++;
     if (val == -1)
         return NULL;
     Node *root = new Node(val);

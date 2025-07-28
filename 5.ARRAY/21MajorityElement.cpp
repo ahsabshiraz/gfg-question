@@ -36,7 +36,7 @@ int FindMajority(int arr[], int n) // Effecient
         }
     }
     count = 0;
-    cout << arr[res];
+    // cout << arr[res];
     for (int i = 0; i < n; i++)
         if (arr[res] == arr[i])
             count++;
@@ -48,7 +48,7 @@ int FindMajority(int arr[], int n) // Effecient
 
 int main()
 {
-    int arr[] = {6, 6, 7, 8, 6, 8};
+    int arr[] = {6, 6, 7, 7, 7, 7, 7, 8, 6, 8};
     int n = sizeof(arr) / sizeof(arr[0]);
     cout << findMajority(arr, n) << endl; // returns index of the maximum element which is greater then n/2
     cout << FindMajority(arr, n);

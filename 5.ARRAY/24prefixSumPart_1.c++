@@ -64,9 +64,9 @@ bool isEqPoint1(int arr[], int n) // prefixSum technique used here
     {
         if (l_sum == sum - arr[i])
             return true;
-        cout << l_sum << " ";
+        // cout << l_sum << " ";
         l_sum += arr[i];
-        cout << sum << endl;
+        // cout << sum << endl;
         sum -= arr[i];
     }
     return false;

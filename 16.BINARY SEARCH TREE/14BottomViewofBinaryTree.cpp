@@ -23,7 +23,7 @@ void bottomView(Node *root)
         auto p = q.front();
         Node *curr = p.first;
         int hd = p.second;
-        mp[hd] = (curr->key);
+        mp[hd] = (curr->key);//keep overwriting the value
         q.pop();
         if (curr->left != NULL)
             q.push({curr->left, hd - 1});

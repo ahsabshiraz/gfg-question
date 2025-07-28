@@ -41,20 +41,20 @@ void fixBST(Node *root) // using recursion and inorder traversal
 }
 //==============================================================================================================================================================================================================
 
-// int prev = -1, firstt = -1, secondd = -1;
-// int fixBSTarray(vector<int> arr)while using array
-// {
-//     for (int i = 0; i < arr.size(); i++)
-//     {
-//         if (arr[i] < prev)
-//         {
-//             if (firstt == -1)
-//                 first = prev;
-//             secondd = arr[i];
-//         }
-//         prev = arr[i];
-//     }
-// }
+int pre = -1, frst = -1, secondd = -1;
+int fixBSTarray(vector<int> arr)//while using array
+{
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if (arr[i] < pre)
+        {
+            if (frst == -1)
+                frst = pre;
+            secondd = arr[i];
+        }
+        pre = arr[i];
+    }
+}
 
 int main()
 {

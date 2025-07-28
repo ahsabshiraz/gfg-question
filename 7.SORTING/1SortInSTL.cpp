@@ -10,7 +10,10 @@ struct point
 };
 bool myCompare(point p1, point p2)
 {
-    return p1.x < p2.x;
+    if (p1.x == p2.x)
+        return p1.y < p2.y;
+
+    return p1.x > p2.x;
 }
 
 int main()
@@ -41,7 +44,7 @@ int main()
         cout << x << " ";
     cout << endl;
     //---------------------------------------------------------------------------------------------
-    point ar[] = {{3, 10}, {2, 8}, {5, 4}};
+    point ar[] = {{3, 10}, {3, 8}, {5, 4}};
     int n1 = sizeof(ar) / sizeof(ar[1]);
     sort(ar, ar + n1, myCompare);
     for (auto i : ar)

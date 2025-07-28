@@ -23,7 +23,7 @@ void topView(Node *root)
         auto p = q.front();
         Node *curr = p.first;
         int hd = p.second;
-        if (mp.find(hd) == mp.end())
+        if (mp.find(hd) == mp.end())// only insert when its empty
             mp[hd] = (curr->key);
         q.pop();
         if (curr->left != NULL)

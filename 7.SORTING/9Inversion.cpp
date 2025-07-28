@@ -14,10 +14,10 @@ int countInversions(int arr[], int n) // naive
         }
     }
     return res;
-}                                                     
-//=================================================== 
+}
+//===================================================
 
-int countAndMerge(int arr[], int l, int m, int r)//efficient(using merge sort)
+int countAndMerge(int arr[], int l, int m, int r) // efficient(using merge sort)
 {
     int n1 = m - l + 1, n2 = r - m;
     int left[n1], right[n2];
@@ -60,13 +60,75 @@ int countInv(int arr[], int l, int r)
     }
     return res;
 }
+//////////////////////////////////////////////////////////////////
+// Striver
+int merge(vector<int> &arr, int low, int mid, int high)
+{
+    vector<int> temp;    // temporary array
+    int left = low;      // starting index of left half of arr
+    int right = mid + 1; // starting index of right half of arr
 
+    // Modification 1: cnt variable to count the pairs:
+    int cnt = 0;
+
+    // storing elements in the temporary array in a sorted manner//
+
+    while (left <= mid && right <= high)
+    {
+        if (arr[left] <= arr[right])
+        {
+            temp.push_back(arr[left]);
+            left++;
+        }
+        else
+        {
+            temp.push_back(arr[right]);
+            cnt += (mid - left + 1); // Modification 2
+            right++;
+        }
+    }
+
+    // if elements on the left half are still left //
+
+    while (left <= mid)
+    {
+        temp.push_back(arr[left]);
+        left++;
+    }
+
+    //  if elements on the right half are still left //
+    while (right <= high)
+    {
+        temp.push_back(arr[right]);
+        right++;
+    }
+
+    // transfering all elements from temporary to arr //
+    for (int i = low; i <= high; i++)
+    {
+        arr[i] = temp[i - low];
+    }
+
+    return cnt; // Modification 3
+}
+
+int mergeSort(vector<int> &arr, int low, int high)
+{
+    int cnt = 0;
+    if (low >= high)
+        return cnt;
+    int mid = (low + high) / 2;
+    cnt += mergeSort(arr, low, mid);      // left half
+    cnt += mergeSort(arr, mid + 1, high); // right half
+    cnt += merge(arr, low, mid, high);    // merging sorted halves
+    return cnt;
+}
 int main()
 {
 
-    int arr[] = {2, 4, 1, 3, 5};
+    vector<int> arr = {5, 4, 3, 2, 1};
 
-    int n = sizeof(arr) / sizeof(arr[0]);
-    cout<<countInversions(arr,n)<<"\n";
-    cout << countInv(arr, 0, n - 1);
+    int n = arr.size();
+    cout << mergeSort(arr, 0, n - 1) << "\n";
+    // cout << countInv(arr, 0, n - 1);
 }

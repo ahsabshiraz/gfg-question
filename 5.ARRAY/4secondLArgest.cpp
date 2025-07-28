@@ -52,7 +52,7 @@ int SecLargest(int arr[], int n)
 
 int main()
 {
-    int arr[] = {2,2,2,2};
+    int arr[] = {2,3,2,2};
     int n = sizeof(arr) / sizeof(arr[0]);
     cout << secondLargest(arr, n) << endl;
     cout << SecLargest(arr, n);

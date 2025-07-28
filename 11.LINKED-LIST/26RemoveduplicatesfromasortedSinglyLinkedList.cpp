@@ -16,13 +16,13 @@ Node* removeDuplicates(Node* head)
 	Node *temp = head, *prev = head;
 
 	while (temp != NULL) {
-		if (temp->data != prev->data) {//[2,3,3,4,4,5,5,6]
+		if (temp->data != prev->data) {//[2,3,3,4,4,5,5,5,6]
 			prev->next = temp;
 			prev = temp;
 		}
 		temp = temp->next;
 	}
-	if (prev != temp)
+	// if (prev != temp)
 		prev->next = NULL;
 	return head;
 }
@@ -47,6 +47,9 @@ void printList(Node* head)
 int main()
 {
 	Node* llist = NULL;
+	llist = push(llist, 21);
+	llist = push(llist, 20);
+	llist = push(llist, 20);
 	llist = push(llist, 20);
 	llist = push(llist, 13);
 	llist = push(llist, 13);

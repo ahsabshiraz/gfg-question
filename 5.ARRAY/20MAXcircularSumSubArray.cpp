@@ -1,5 +1,7 @@
 // Maximum circular sum of sub array in the Given array
 #include <iostream>
+#include <vector>
+#include <climits>
 using namespace std;
 
 int maxCircular(int arr[], int n) // naive
@@ -43,17 +45,57 @@ int overallMaxSum(int arr[], int n)
     for (int i = 0; i < n; i++)
     {
         arr_sum += arr[i];
-        arr[i] = -arr[i];//invertion
-    } 
+        arr[i] = -arr[i]; // invertion
+    }
     int max_circular = arr_sum + normalMaxSum(arr, n);
     return max(max_circular, max_normal);
+}
+
+//! 3
+
+//^ ______         ______
+//? 3,4,6,|-8,4,-7|,10,-2 -> A=ans using kaidensAlog in straight array
+//^ -----          ------
+//& s1       s2      s1
+//! s2=minimum sum
+//! s1=totalSumArray-s2
+//* ans=max(s1,A)
+
+int ans(vector<int> a)
+{
+    int min = INT_MAX, max = INT_MIN;
+    int s1 = 0, s2 = 0, s = 0;
+    for (auto i : a)
+    {
+        s += i; // sum of all elements
+
+        // maximum sum-subarray
+        s1 += i;
+        if (s1 > max)
+            max = s1;
+        if (s1 < 0)
+            s1 = 0;
+
+        // minimum sum-subarray
+        s2 += i;
+        if (s2 < min)
+            min = s2;
+        if (s2 > 0) // we find the largest negative subarray
+            s2 = 0;
+    }
+
+    if (max < 0) // when whole array is negative
+        return max;
+    return max > s - min ? max : s - min;
 }
 
 int main()
 {
     int arr[] = {5, -2, 3, 4};
     int n = sizeof(arr) / sizeof(arr[0]);
-    cout << maxCircular(arr, n)<<endl;
-    cout << overallMaxSum(arr, n);
+    vector<int> a = {5, -2, 3, 4};
+    cout << maxCircular(arr, n) << endl;
+    cout << overallMaxSum(arr, n) << endl;
+    cout << ans(a);
     return 0;
 }
