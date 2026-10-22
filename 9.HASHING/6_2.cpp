@@ -10,14 +10,18 @@ int intersection(int a[], int b[], int m, int n) // efficient solution -2
     int res = 0;
     unordered_set<int> s1(a, a + m);
     unordered_set<int> s2(b, b + n);
-    
-    for (auto i=s1.begin(); i != s1.end(); i++)
-    {
-        if (s2.find(*i) != s2.end())
-        {
+
+    // for (auto i=s1.begin(); i != s1.end(); i++)
+    // {
+    //     if (s2.find(*i) != s2.end())
+    //     {
+    //         res++;
+    //     }
+    // }
+    for (auto a : s1)
+        if (s2.find(a) != s2.end())
             res++;
-        }
-    }
+
     return res;
 }
 int intersection1(int a[], int b[], int m, int n) // efficient solution -2

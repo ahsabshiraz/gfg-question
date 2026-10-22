@@ -4,6 +4,7 @@
         "unordered_map": "cpp",
         "climits": "cpp",
         "ostream": "cpp",
-        "new": "cpp"
+        "new": "cpp",
+        "iostream": "cpp"
     }
 }

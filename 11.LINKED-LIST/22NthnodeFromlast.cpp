@@ -23,7 +23,7 @@ void printlist(Node *head)
     cout << endl;
 }
 
-void printNthFromEnd(Node *head, int n) // m-1
+void printNthFrosmEnd(Node *head, int n) // m-1
 {
     int len = 0;
     for (Node *curr = head; curr != NULL; curr = curr->next)

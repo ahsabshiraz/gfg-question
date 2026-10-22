@@ -1,36 +1,44 @@
-// To find the minimum occurring and maximum occurring character in a given string
 #include <iostream>
-#include <unordered_map>
-#include <climits>
 using namespace std;
 
-int findMinMaxOccurringChar(string str)
+int partition(int arr[], int lb, int ub)
 {
-    unordered_map<char, int> map;
-    for (auto s : str)
-        map[s]++;
-    char min_char, max_char;
-    int min_int = INT_MAX, max_int = INT_MIN;
-    for (auto m : map)
+    int start = lb, end = ub, pivot = arr[lb];
+    while (start < end)
     {
-        if (max_int < m.second)
-        {
-            max_char = m.first;
-            max_int = m.second;
-        }
-        if (min_int > m.second)
-        {
-            min_char = m.first;
-            min_int = m.second;
-        }
+        while (arr[start] <= pivot)
+            start++;
+        while (arr[end] > pivot)
+            end--;
+        if (start < end)
+            swap(arr[start], arr[end]);
     }
-    cout << max_char << " : " << max_int << endl;
-    cout << min_char << " : " << min_int << endl;
+    swap(arr[lb], arr[end]);
+    return end;
 }
-
+int kthSmallest(int arr[], int n, int k)
+{
+    if (n < k)
+        return -1;
+    int l = 0, h = n-1;
+    while (l <= h)
+    {
+        int p = partition(arr, l, h);
+        if (p == k - 1)
+            return p;
+        else if (p > k - 1)
+            h = p - 1;
+        else
+            l = p + 1;
+    }
+    return -1;
+}
 int main()
 {
-    findMinMaxOccurringChar("aaabbccdffdfasv");
-}
 
-// arr[] = {3, 0, 2, 0, 4}
+    int arr[] = {10, 4, 5, 8, 11, 6, 26};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int k = 5;
+    int index = kthSmallest(arr, n, k);
+    cout << arr[index];
+}

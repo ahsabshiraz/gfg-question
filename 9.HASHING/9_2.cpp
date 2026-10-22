@@ -5,6 +5,7 @@ bool is0subarray(int a[], int n)
 {
     int pre_sum = 0;
     unordered_set<int> h;
+    h.insert(0);
     for (int i = 0; i < n; i++)
     {
         pre_sum += a[i];
@@ -12,10 +13,11 @@ bool is0subarray(int a[], int n)
         {
             return true;
         }
-        if (pre_sum == 0)
-        {
-            return true;
-        }
+        // we can remove the separate check by inserting 0 into the set initially:
+        // if (pre_sum == 0)
+        // {
+        //     return true;
+        // }
 
         else
         {
